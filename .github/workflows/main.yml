@@ -1,0 +1,16 @@
+name: github action 테스트
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 소스코드를 ubuntu에 복사
+      uses: actions/checkout@v2
+    - name: ubuntu에 python 개발환경 구축
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+    - name: python main.py 실행
+      run: python main.py
